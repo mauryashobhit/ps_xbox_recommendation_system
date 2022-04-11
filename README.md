@@ -27,11 +27,6 @@ A recommendation system for playstation and x box games .
 ![image](https://user-images.githubusercontent.com/62472111/162767252-65eef6bc-55a7-426d-8532-2582de1811e9.png)
 
 
-
-![image](https://user-images.githubusercontent.com/62472111/162767467-f686c412-a1ea-4caa-9562-25b10ca6de77.png)
-
-
-
 ![image](https://user-images.githubusercontent.com/62472111/162768321-938a8e45-7e8b-40e5-9eef-56dca1a4eb23.png)
 
 
