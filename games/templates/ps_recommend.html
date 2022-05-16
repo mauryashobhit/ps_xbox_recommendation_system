@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Playstation Trailers</title>
+    <title>Ps Recommend</title>
     <!-- Custom styles for this template -->
     <link href="/static/css/album.css" rel="stylesheet">
     <title></title>
@@ -24,23 +24,23 @@
   <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
   <script src="/static/js/jquery.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 </head>
   <body>
-    <script id="gs-sdk" src='//www.buildquickbots.com/botwidget/v3/demo/static/js/sdk.js?v=3' key="1578c011-20f4-4463-96eb-dc5834056fc6" ></script>
-
     <div class="banner-info">
  		  <div class="container">
  				<div class="logo" style="color:white">
- 					 <h1><a href="{% url "ps" %}">PLAYSTATION GAMES</a></h1>
+ 					 <h1><a href="{% url "xbox" %}">PS GAMES</a></h1>
  				</div>
  			 <div class="top-menu">
  				 <span class="menu"></span>
  					<ul class="nav1">
-            <li class=""><a href="{%url "index" %}">Home</a></li>
-            <li class=""><a href="{%url "ps_recommend" %}">Recommend</a></li>
-            <li class=""><a href="{%url "ps_trailers" %}">Trailers</a></li>
-            <li class=""><a href="{% url "ps_news" %}">News</a></li>
+            <li class=""><a href="{% url "index" %}">Home</a></li>
+            <li class=""><a href="{% url "xbox_recommend" %}">Recommend</a></li>
+            <li class=""><a href="{% url "xbox_trailers" %}">Trailers</a></li>
+            <li class=""><a href="{% url "xbox_news" %}">News</a></li>
             <li class=""><A href="Logout.html">Logout</a></li>
  				  </ul>
  			 </div>
@@ -148,9 +148,9 @@
   	 <div class="container">
   		 <div class="headr-left">
   			 <div class="search">
-  				 <form>{% csrf_token %}
-  					 <input type="submit" value="">
-  					 <input type="text" id="autoComplete" autocomplete="off" placeholder="Enter the Game Name" name="title" required="required">
+  				 <form method="POST" action="{% url "xbox_suggestions" %}">{% csrf_token %}
+  					 <input type="text" id="autoComplete" autocomplete="off" placeholder="Enter the Game Name" name="Title" required="required">
+             <button type="submit" name="submit" value="search" class="btn btn-primary my-2">Search</button>
   				 </form>
   			 </div>
   			 <div class="clearfix"></div>
@@ -158,6 +158,139 @@
   </div>
 </div>
 <br><Br>
+  <div class="aligned">
+    <img class="poster" style="border-radius: 40px;margin-left: 250px;" height="400" width="250" src="/static/images/{{Title}}.png">
+<span>
+        <h2><b>&nbsp&nbspTITLE: &nbsp&nbsp&nbsp;{{Title}}</b></h2><br>
+        <h2><b>&nbsp&nbspGENRE: &nbsp&nbsp&nbsp;{{Genre}}</b></h2><br>
+        <h2><b>&nbsp&nbspDIRECTOR: &nbsp&nbsp&nbsp;{{Director}}</b></h2><br>
+        <h2><b>&nbsp&nbspPUBLISHER: &nbsp&nbsp&nbsp;{{Publisher}}</b></h2><br>
+</span>
+    </div>
+    <div style="background-color:#14e3f2">
+      <br>
+<center><h5><b>{{list}}<b></h5></center><br><Br>
+</div>
+<br><Br>
 
-    </body>
+  <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% for video in videos %}
+          <div class="col-md-4">
+            <div class="card_mb-4">
+              <img class="bd-placeholder-img card-img-top" width=100 height=200 src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+              <div class="card-body">
+                <p class="card-text">{{ video.title }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+                  </div>
+                  <small class="text-muted">{{ video.duration }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+
+<center><h2><b><u>Recommended Games For You</u><b></h2></center><br><br>
+
+
+  {% for title in df %}
+    <div class="card" style="width: 15rem;" title="{{title}}" >
+      <div class="imghvr" style="display:inline-block">
+        &nbsp&nbsp&nbsp&nbsp<img class="card-img-top" height="360" width="240" src="/static/images/{{title}}.png" alt="{{title}}">
+        <div class="centered" style="color:yellow"><h5>{{title}}<h5></div>
+     </div>
+    </div>
+{% endfor %}
+
+
+
+
+  </body>
   </html>
+
+  <style>
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .card {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+        .aligned {
+              display: flex;
+              align-items: center;
+          }
+
+          span {
+              padding: 200px;
+          }
+
+          .jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.card_mb-4
+{
+  height:500px;
+  width:300px;
+}
+
+</style>

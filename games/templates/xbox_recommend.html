@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Xbox Trailers</title>
+    <title>Xbox Recommend</title>
     <!-- Custom styles for this template -->
     <link href="/static/css/album.css" rel="stylesheet">
     <title></title>
@@ -174,42 +174,41 @@
 <br><Br>
 
   <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        {% for video in videos %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ video.thumbnail }}"></img>
-            <div class="card-body">
-              <p class="card-text">{{ video.title }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+      <div class="container">
+        <div class="row">
+          {% for video in videos %}
+          <div class="col-md-4">
+            <div class="card_mb-4">
+              <img class="bd-placeholder-img card-img-top" width=100 height=200 src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+              <div class="card-body">
+                <p class="card-text">{{ video.title }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+                  </div>
+                  <small class="text-muted">{{ video.duration }} mins</small>
                 </div>
-                <small class="text-muted">{{ video.duration }} mins</small>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
-  </div>
+
+<br><Br>
+
+    <center><h2><b><u>Recommended Games For You</u><b></h2></center><br><br>
 
 
-
-<center><h2><b><u>Recommended Games For You</u><b></h2></center><br><br>
-
-
-  {% for title in df %}
-    <div class="card" style="width: 15rem;" title="{{title}}" >
-      <div class="imghvr" style="display:inline-block">
-        &nbsp&nbsp&nbsp&nbsp<img class="card-img-top" height="360" width="240" src="/static/images/{{title}}.png" alt="{{title}}">
-        <div class="centered" style="color:yellow"><h5>{{title}}<h5></div>
-     </div>
-    </div>
-{% endfor %}
-
+      {% for title in df %}
+        <div class="card" style="width: 15rem;" title="{{title}}" >
+          <div class="imghvr" style="display:inline-block">
+            &nbsp&nbsp&nbsp&nbsp<img class="card-img-top" height="360" width="240" src="/static/images/{{title}}.png" alt="{{title}}">
+            <div class="centered" style="color:yellow"><h5>{{title}}<h5></div>
+         </div>
+        </div>
+    {% endfor %}
 
 
   </body>
@@ -226,62 +225,72 @@
   float: left;
   width: 33.33%;
   padding: 5px;
+
+}
+.card1 {
+float: left;
+width: 33.33%;
+padding: 5px;
+
+}
+.aligned {
+display: flex;
+align-items: center;
 }
 
-        .aligned {
-              display: flex;
-              align-items: center;
-          }
-
-          span {
-              padding: 200px;
-          }
-
-          .jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 0;
-  background-color: #fff;
+span {
+padding: 200px;
 }
+
+.jumbotron {
+padding-top: 30rem;
+padding-bottom: 30rem;
+margin-bottom: 0;
+background-color: #fff;
+}
+
 @media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
+.jumbotron {
+padding-top: 6rem;
+padding-bottom: 6rem;
 }
-
+}
 .jumbotron p:last-child {
-  margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .jumbotron-heading {
-  font-weight: 300;
+font-weight: 300;
 }
 
 .jumbotron .container {
-  max-width: 40rem;
+max-width: 60rem;
 }
 
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+padding-top: 30rem;
+padding-bottom: 30rem;
 }
 
 footer p {
-  margin-bottom: .25rem;
+margin-bottom: .25rem;
 }
 .bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+.card_mb-4
+{
+  height:500px;
+  width:300px;
 }
       </style>
