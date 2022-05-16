@@ -6,6 +6,7 @@ from games import views
 app_name="games"
 
 urlpatterns = [
+path('admin/', admin.site.urls),
     path('',views.index,name="index"),
     path('ps_news/',views.ps_news,name='ps_news'),
     path('ps_trailers/',views.ps_trailers,name='ps_trailers'),
