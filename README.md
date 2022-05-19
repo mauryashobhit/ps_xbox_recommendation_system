@@ -33,4 +33,8 @@ A recommendation system for playstation and x box games .
 ![image](https://user-images.githubusercontent.com/62472111/162768374-79a8ef2b-0ed4-413d-9502-64ee1abbf6ac.png)
 
 
+![image](https://user-images.githubusercontent.com/62472111/169311280-5dd9a9e5-27c5-413a-898f-0b6d9ba05e89.png)
+
+
+
 ![image](https://user-images.githubusercontent.com/62472111/162768433-fc01401f-4357-4baa-8e94-b0a1b6684c94.png)
